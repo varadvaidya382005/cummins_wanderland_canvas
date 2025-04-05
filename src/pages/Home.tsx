@@ -1,7 +1,9 @@
 import React from 'react';
-import { Search, MapPin, Calendar, TrendingUp, Globe, Clock, Shield, Users } from 'lucide-react';
+import { Search, TrendingUp, Globe, Clock, Shield, Users, PlusCircle } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
   const features = [
     {
       icon: <Globe className="h-8 w-8 text-blue-600" />,
@@ -82,6 +84,15 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          {/* Create Blog Button */}
+          <button
+            onClick={() => navigate('/create-blog')}
+            className="mt-8 bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-50 transition-colors shadow-lg flex items-center gap-2"
+          >
+            <PlusCircle className="h-5 w-5" />
+            Create Your Travel Blog
+          </button>
         </div>
       </div>
 
