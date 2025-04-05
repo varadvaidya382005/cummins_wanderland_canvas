@@ -1,7 +1,10 @@
 import React from 'react';
-import { MapPin, Star, Heart } from 'lucide-react';
+import { MapPin, Star, Heart, Scale } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Discover = () => {
+  const navigate = useNavigate();
+
   const destinations = [
     {
       id: 1,
@@ -66,11 +69,20 @@ const Discover = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Discover Amazing Destinations</h1>
-          <p className="text-xl text-gray-600">Explore handpicked travel destinations from around the world</p>
+    <div className="min-h-screen bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="flex justify-between items-center mb-12">
+          <div>
+            <h1 className="text-4xl font-bold text-gray-900 mb-2">Discover Destinations</h1>
+            <p className="text-lg text-gray-600">Explore amazing places around the world</p>
+          </div>
+          <button
+            onClick={() => navigate('/compare')}
+            className="flex items-center space-x-2 bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors shadow-lg"
+          >
+            <Scale className="h-5 w-5" />
+            <span>Compare Plans</span>
+          </button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

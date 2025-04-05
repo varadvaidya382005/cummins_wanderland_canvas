@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Compass, Search, LogIn, LayoutGrid, PenSquare } from 'lucide-react';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   return (
     <nav className="bg-white shadow-lg sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,10 +23,13 @@ const Navbar = () => {
                 <LayoutGrid className="h-5 w-5" />
                 <span>Explore</span>
               </Link>
-              <Link to="/search" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+              <button 
+                onClick={() => navigate('/discover')}
+                className="flex items-center space-x-2 text-gray-600 hover:text-blue-600"
+              >
                 <Search className="h-5 w-5" />
                 <span>Search</span>
-              </Link>
+              </button>
               <Link to="/create-blog" className="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
                 <PenSquare className="h-5 w-5" />
                 <span>Create</span>
